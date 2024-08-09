@@ -8,7 +8,9 @@ func (list *LinkedList[T]) ToList() []T {
 	list.curr = list.head
 	for list.curr != nil {
 		output = append(output, list.curr.data)
-		list.moveNext()
+		if !list.moveNext() {
+			break
+		}
 	}
 	return output
 }
