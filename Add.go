@@ -23,4 +23,5 @@ func (list *LinkedList[T]) Add(data T) {
 		list.curr = newNode // Move curr to the new node
 	}
 	list.count++ // Increment count
+	list.sorted = false
 }

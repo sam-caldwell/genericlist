@@ -21,4 +21,5 @@ func (list *LinkedList[T]) AddTail(data T) {
 	}
 
 	list.count++ // Increment count
+	list.sorted = false
 }

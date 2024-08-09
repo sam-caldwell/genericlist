@@ -23,4 +23,5 @@ func (list *LinkedList[T]) AddHead(data T) {
 	}
 
 	list.count++ // Increment count
+	list.sorted = false
 }

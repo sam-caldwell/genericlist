@@ -6,10 +6,11 @@ import (
 
 func TestLinkedList_struct(t *testing.T) {
 	list := LinkedList[int]{
-		head:  &LinkedListNode[int]{},
-		curr:  &LinkedListNode[int]{},
-		tail:  &LinkedListNode[int]{},
-		count: 0,
+		head:   &LinkedListNode[int]{},
+		curr:   &LinkedListNode[int]{},
+		tail:   &LinkedListNode[int]{},
+		count:  0,
+		sorted: true,
 	}
 	list.lock.Lock()
 	list.lock.Unlock()

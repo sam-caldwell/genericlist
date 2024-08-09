@@ -21,4 +21,5 @@ func (list *LinkedList[T]) Sort(swap func(a, b T) bool) {
 			current = current.nextPtr
 		}
 	}
+	list.sorted = true
 }
