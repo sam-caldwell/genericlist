@@ -1,7 +1,7 @@
 package genericlist
 
 // Sort - Sort the linked list in ascending or descending order.
-func (list *LinkedList[T]) Sort(asc bool, less func(a, b T) bool) {
+func (list *LinkedList[T]) Sort(swap func(a, b T) bool) {
 	list.lock.Lock()
 	defer list.lock.Unlock()
 	if list.count < 2 {
@@ -14,9 +14,7 @@ func (list *LinkedList[T]) Sort(asc bool, less func(a, b T) bool) {
 
 		for current != nil && current.nextPtr != nil {
 			// Compare based on the 'asc' parameter
-			if (asc && !less(current.data, current.nextPtr.data)) ||
-				(!asc && less(current.data, current.nextPtr.data)) {
-				// Swap the data
+			if swap(current.data, current.nextPtr.data) {
 				current.data, current.nextPtr.data = current.nextPtr.data, current.data
 				swapped = true
 			}
