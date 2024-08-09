@@ -35,8 +35,12 @@ func TestLinkedList_Sort(t *testing.T) {
 		list.AddTail(1)
 		list.AddTail(2)
 
+		list.sorted = false
 		// Sort in ascending order
 		list.Sort(AscendingOrder)
+		if !list.sorted {
+			t.Fatal("sorted flag should be true")
+		}
 
 		expected := []int{1, 2, 3}
 		got := getListData(list)
@@ -59,7 +63,11 @@ func TestLinkedList_Sort(t *testing.T) {
 		list.AddTail(2)
 
 		// Sort in descending order
+		list.sorted = false
 		list.Sort(DescendingOrder)
+		if !list.sorted {
+			t.Fatal("sorted flag should be true")
+		}
 
 		expected := []int{3, 2, 1}
 		got := getListData(list)
